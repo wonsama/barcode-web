@@ -33,7 +33,7 @@
             lastResult = decodedText;
             // Handle on success condition with the decoded message.
             console.log(`Scan result ${decodedText}`, decodedResult);
-            resultContainer.innerHTML = `<center><div class="badge badge-primary badge-outline">${decodedText}</div></center>`;
+            resultContainer.innerHTML = `<center><kbd class="kbd">${decodedText}</kbd></center>`;
           }
         }
 
@@ -47,6 +47,8 @@
   </head>
   <body class="bg-green-700">
     <div id="qr-reader" style="width: 100%"></div>
-    <div id="qr-reader-results"></div>
+    <div id="qr-reader-results" class="py-5">
+      <center><kbd class="kbd">READ TEXT HERE</kbd></center>
+    </div>
   </body>
 </html>
