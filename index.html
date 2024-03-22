@@ -7,6 +7,43 @@
       type="text/css"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      #html5-qrcode-button-file-selection {
+        font-size: 0;
+      }
+      #html5-qrcode-button-file-selection::after {
+        content: '이미지 선택 - 이미지가 선택되지 않았습니다';
+        font-size: initial;
+      }
+      #html5-qrcode-button-camera-permission {
+        font-size: 0;
+      }
+      #html5-qrcode-button-camera-permission::after {
+        content: '카메라 권한 요청하기';
+        font-size: initial;
+      }
+      #html5-qrcode-button-camera-start {
+        font-size: 0;
+      }
+      #html5-qrcode-button-camera-start::after {
+        content: '스캔시작';
+        font-size: initial;
+      }
+      #html5-qrcode-button-camera-stop {
+        font-size: 0;
+      }
+      #html5-qrcode-button-camera-stop::after {
+        content: '스캔종료';
+        font-size: initial;
+      }
+      #html5-qrcode-anchor-scan-type-change {
+        font-size: 0;
+      }
+      #html5-qrcode-anchor-scan-type-change::after {
+        content: '이미지 파일 스캔';
+        font-size: initial;
+      }
+    </style>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/html5-qrcode.min.js"></script>
     <script>
@@ -37,10 +74,14 @@
           }
         }
 
-        var html5QrcodeScanner = new Html5QrcodeScanner('qr-reader', {
-          fps: 10,
-          qrbox: 250,
-        });
+        var html5QrcodeScanner = new Html5QrcodeScanner(
+          'qr-reader',
+          {
+            fps: 10,
+            qrbox: 250,
+          },
+          true,
+        );
         html5QrcodeScanner.render(onScanSuccess);
       });
     </script>
