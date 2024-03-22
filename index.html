@@ -7,61 +7,24 @@
       type="text/css"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      #html5-qrcode-button-file-selection {
-        font-size: 0;
-      }
-      #html5-qrcode-button-file-selection::after {
-        content: '이미지 선택 - 이미지가 선택되지 않았습니다';
-        font-size: initial;
-      }
-      #html5-qrcode-button-camera-permission {
-        font-size: 0;
-      }
-      #html5-qrcode-button-camera-permission::after {
-        content: '카메라 권한 요청하기';
-        font-size: initial;
-      }
-      #html5-qrcode-button-camera-start {
-        font-size: 0;
-      }
-      #html5-qrcode-button-camera-start::after {
-        content: '스캔시작';
-        font-size: initial;
-      }
-      #html5-qrcode-button-camera-stop {
-        font-size: 0;
-      }
-      #html5-qrcode-button-camera-stop::after {
-        content: '스캔종료';
-        font-size: initial;
-      }
-      #html5-qrcode-anchor-scan-type-change {
-        font-size: 0;
-      }
-      #html5-qrcode-anchor-scan-type-change::after {
-        content: '이미지 파일 스캔';
-        font-size: initial;
-      }
-    </style>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/html5-qrcode.min.js"></script>
     <script>
       function docReady(fn) {
         // see if DOM is already available
         if (
-          document.readyState === 'complete' ||
-          document.readyState === 'interactive'
+          document.readyState === "complete" ||
+          document.readyState === "interactive"
         ) {
           // call on next available tick
           setTimeout(fn, 1);
         } else {
-          document.addEventListener('DOMContentLoaded', fn);
+          document.addEventListener("DOMContentLoaded", fn);
         }
       }
 
       docReady(function () {
-        var resultContainer = document.getElementById('qr-reader-results');
+        var resultContainer = document.getElementById("qr-reader-results");
         var lastResult,
           countResults = 0;
         function onScanSuccess(decodedText, decodedResult) {
@@ -75,12 +38,12 @@
         }
 
         var html5QrcodeScanner = new Html5QrcodeScanner(
-          'qr-reader',
+          "qr-reader",
           {
             fps: 10,
             qrbox: 250,
           },
-          true,
+          false
         );
         html5QrcodeScanner.render(onScanSuccess);
       });
